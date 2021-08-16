@@ -1,0 +1,36 @@
+ /* .text {
+    color: rgb(19, 34, 149);
+     justify-content:space-between; 
+     text-align:; 
+     font-size:50px; 
+    
+    
+ }   */
+
+.landing {
+    font-size: 200%;
+    opacity: 0.8;
+    background-image:url(https://elviajerofeliz.com/wp-content/uploads/2020/01/Comida-t%C3%ADpica-de-Bangladesh-Platos-Imprescindibles.jpg);
+    background-color: transparent;
+    padding: 300px;
+    
+    
+   
+}
+
+/* .title {
+    display: flex;
+    margin-bottom:  100px;
+    align-items: center;
+    justify-items: flex-start;
+    
+    color:rgb(121, 26, 26);
+    font-size: 130px;
+    
+} */
+
+.button {
+    display: flex;
+    align-items: flex-start;
+
+}

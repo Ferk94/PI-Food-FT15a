@@ -1,0 +1,40 @@
+.navBar{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    background-color:rgb(121, 26, 26);
+    padding:25px;
+    
+}
+
+.homeButton {
+    
+    
+    background-color: beige;
+    font-size: 25px;
+    border-radius: 10px;
+    
+
+}
+
+.landingButton {
+    
+    background-color: beige;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.searchButton {
+    
+    background-color: beige;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.createButton {
+   
+    
+    background-color: beige;
+    font-size: 20px;
+    border-radius: 10px;
+}

@@ -1,0 +1,56 @@
+.global{
+    display : grid;
+    grid-template-columns: 100% 100% 90%;
+
+    
+}
+
+.form-new-recipe{
+    display: flex;
+    flex-direction: column;
+    background-image:url(https://img.freepik.com/vector-gratis/fondo-blanco-gris-brillante-lineas-onduladas_1017-25101.jpg?size=626&ext=jpg);
+    padding-bottom: 250px;
+}
+
+
+h1{
+    border-top: 5px groove;
+    border-bottom: 5px groove;
+    font-size: 2em;
+    color: white;
+    background: linear-gradient(90deg, rgba(121,26,12,1) 0%, rgba(90,89,96,1) 50%, rgba(121,26,26,1) 100%);
+    /* width:100%; */
+}
+
+.name{
+   font-size: 20px;
+   color:rgb(121, 26, 26);
+}
+
+.summary{
+    font-size: 20px;
+    color:rgb(121, 26, 26);
+ }
+
+ .score{
+    font-size: 20px;
+    color:rgb(121, 26, 26);
+ }
+
+ .healthScore{
+    font-size: 20px;
+    color:rgb(121, 26, 26);
+ }
+
+ .image {
+    font-size: 20px;
+    color:rgb(121, 26, 26);
+ }
+
+ .steps{
+    font-size: 20px;
+    color:rgb(121, 26, 26);
+ }
+
+
+

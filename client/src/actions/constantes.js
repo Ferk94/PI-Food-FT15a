@@ -1,0 +1,4 @@
+export const GET_RECIPES = "GET_RECIPES"
+export const FILTER_RECIPES = "FILTER_RECIPES"
+export const ORDER_RECIPES = "ORDER_RECIPES"
+export const SEARCH_RECIPES = "SEARCH_RECIPES"

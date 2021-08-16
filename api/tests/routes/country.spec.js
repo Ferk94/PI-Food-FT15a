@@ -18,7 +18,7 @@ describe('Recipe routes', () => {
     .then(() => Recipe.create(recipe)));
   describe('GET /recipes', () => {
     it('should get 200', () =>
-      agent.get('/recipes').expect(200)
+      agent.get('/recipes').expect(200) 
     );
   });
 });

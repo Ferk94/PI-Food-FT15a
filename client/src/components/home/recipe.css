@@ -1,0 +1,24 @@
+.recipeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    background-image: url(https://static9.depositphotos.com/1026550/1177/i/600/depositphotos_11771732-stock-photo-classic-tablecloth-texture.jpg);
+    
+   
+
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: blue;
+    background-image: url(https://i.pinimg.com/736x/87/19/44/8719449f6c95f08f384343582e98a7d5.jpg);
+} 
+
+.diet {
+    font-size: 15px;
+    color:black;
+}
