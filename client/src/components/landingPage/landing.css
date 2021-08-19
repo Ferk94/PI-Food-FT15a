@@ -30,7 +30,14 @@
 } */
 
 .button {
-    display: flex;
-    align-items: flex-start;
+    height: 60px;
+    width: 130px;
+    background-color: transparent;
+    font-size: 30px;
+    color: rgb(121, 26, 26);
 
+}
+
+.button:hover {
+    background-color: orange;
 }

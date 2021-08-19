@@ -6,7 +6,7 @@ import NavBar from "./components/navBar/navbar"
 import Home from "./components/home/home"
 import RecipeDetail from "./components/detail/recipeDetail"
 import AddRecipe from './components/addRecipe/addRecipe';
-// import About from "./components/about/about"
+import About from "./components/about/about"
 
 
 function App() { 
@@ -18,8 +18,8 @@ function App() {
       <Route exact path="/recipes" component={Home} />
       {/* <Route exact path="/search" component={SearchBar} /> */}
       <Route exact path="/recipes/addrecipe" component={AddRecipe} />
-      <Route path="/recipes/:id" render = {({match}) => <RecipeDetail match={match}/> } />
-      {/* <Route path="/about" component={About} />  */}
+      <Route path="/recipes/:id" render = {({match}) => <RecipeDetail match={match}/> } /> 
+      <Route path="/recipes/about" component={About} /> 
     </div>
     </BrowserRouter>
   );

@@ -13,6 +13,6 @@ export default function Home () {
     // }, [dispatch])  
 
     return <div className="home">
-        <SearchBar/>
+        <SearchBar/> 
     </div>
 } 

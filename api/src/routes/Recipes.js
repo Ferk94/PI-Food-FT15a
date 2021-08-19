@@ -63,15 +63,26 @@ router.get("/", async (req, res, next) => {
         })
     } 
     
-       let apiRecipe = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY4}&addRecipeInformation=true&number=100`)
+       let apiRecipe = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY3}&addRecipeInformation=true&number=100`)
+       let apiChangePropertys = apiRecipe.data.results.map(recipe => {
+           return {
+               name: recipe.title,
+               summary: recipe.summary,
+               score: recipe.spoonacularScore,
+               healthScore: recipe.healthScore,
+               image: recipe.image,
+               steps: recipe.steps,
+               diets: recipe.diets
+           }
+       })
        let apiFiltered = [];
     //    console.log(apiRecipe, "linea 68")
        if(name){
-           apiFiltered = apiRecipe.data.results.filter(recipe => {
-               return recipe.title.toLowerCase().includes(name.toLowerCase())
+           apiFiltered = apiChangePropertys.filter(recipe => {
+               return recipe.name.toLowerCase().includes(name.toLowerCase())
            })
        }else{
-           apiFiltered = apiRecipe.data.results
+           apiFiltered = apiChangePropertys
         //    conosole.log(apiFiltered, "linea 75")
        }
     
@@ -108,7 +119,7 @@ router.get("/:id", async (req, res, next) => {
             }
             // console.log(recipe.summary)
         }else{
-            var recipeResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APIKEY4}`)
+            var recipeResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APIKEY3}`)
             // console.log(recipeResponse, "linea 110")
             recipe = {
                 name: recipeResponse.data.title,

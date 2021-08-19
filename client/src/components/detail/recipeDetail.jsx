@@ -9,7 +9,7 @@ export default function RecipeDetail () {
     const {id} = useParams()
 
     useEffect(() => {
-        getRecipeById(id)
+        getRecipeById(id) 
     }, [id])
 
     function getRecipeById(id){
@@ -20,27 +20,31 @@ export default function RecipeDetail () {
         })
         
     }
+   
 
 console.log(recipe.diets)
 
 
-    return <div>
+    return <div className="global">
         {
             recipe && recipe.diets && <div>
                 <h1>Recipe</h1>
-                <div>{recipe?.name}</div>
-                <img src={recipe?.image} alt="no existe la imagen"/>
+                {/* <h2>Title</h2> */}
+                <div className="name-recipe">{recipe?.name}</div>
+                <div className="img">
+                    <img src={recipe?.image} alt="no existe la imagen"/>
+                </div>
                 <h2>Summary</h2>
-                <div>{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
+                <div className="summary-recipe">{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
                 <h3>Score</h3>
-                <div>{recipe?.score}</div>
+                <div className="score-recipe">{recipe?.score}</div>
                 <h3>Health Score</h3>
-                <div>{recipe?.healthScore}</div>
+                <div className="healthScore-recipe">{recipe?.healthScore}</div>
                 <h3>Steps</h3>
-                <div>{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
+                <div className="steps-recipe">{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
                 <h3>Diets</h3>
                 {
-                    recipe.diets.map(diet => <div>{diet || diet.name}</div>)
+                    recipe.diets.map(diet => <div className="diets-recipe">{diet || diet.name}</div>)
                 }
             </div>
             

@@ -16,18 +16,18 @@ module.exports = (sequelize) => {
     },
     summary: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: false
     },
     score: {
       type: DataTypes.FLOAT,
-      allowNull: true, 
+      allowNull: false, 
       validate: {
         isFloat: true
       }
     },
     healthScore: {
       type: DataTypes.FLOAT,
-      allowNull: true,
+      allowNull: false,
       validate: {
         isFloat: true
       }

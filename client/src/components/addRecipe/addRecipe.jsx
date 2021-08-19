@@ -51,6 +51,7 @@ export default function AddRecipe(){
             ...form,
             diets: [...form.diets, id]
         })
+        
     }
 
 
@@ -106,17 +107,18 @@ export default function AddRecipe(){
                     
                     <h1>Add recipe</h1>
                 </div>
-                <div>
-                    <label className="name" htmlFor="name">Name</label>
-                    <input autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
+                <div className="inputsNames">
+                    <label htmlFor="name">Name</label>
+                    <input className="inputsArea" autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
                 </div>
-                <div>
-                    <label className="summary" htmlFor="summary">Summary</label>
-                    <textarea name="summary" id="summary" value={form.summary} onChange={(e) => handleChange(e)} />
+                <div className="inputsNames">
+                    <label htmlFor="summary">Summary</label>
+                    <textarea className="inputsArea" name="summary" id="summary" value={form.summary} onChange={(e) => handleChange(e)} />
                 </div>
-                <div>
-                    <label className="score" htmlFor="score">Score</label>
+                <div className="inputsNames">
+                    <label htmlFor="score">Score</label>
                     <input
+                    className="inputsArea"
                     name="score"
                     id="score"
                     type="number"
@@ -128,9 +130,10 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label className="healthScore" htmlFor="healthScore">Health Score</label>
+                <div className="inputsNames">
+                    <label htmlFor="healthScore">Health Score</label>
                     <input
+                    className="inputsArea"
                     name="healthScore"
                     id="healthScore"
                     type="number"
@@ -142,9 +145,10 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label className="image" htmlFor="image">Image</label>
+                <div className="inputsNames">
+                    <label htmlFor="image">Image</label>
                     <input
+                    className="inputsArea"
                     name="image"
                     id="image"
                     type="text"
@@ -153,9 +157,10 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label className="steps" htmlFor="steps">Steps</label>
+                <div className="inputsNames">
+                    <label htmlFor="steps">Steps</label>
                     <textarea
+                    className="inputsArea"
                     name="steps"
                     id="steps"
                     type="text"
@@ -173,14 +178,17 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     /> */}
                     {
-                        diets.map(diet => {
-                            return <div className="diets">
+                        diets.map(diet => { 
+                            return <div>
+                                <div className="diets">
                                 {diet.name}
-                                <button
-                                type="button"
-                                onClick={() => AddDietsToRecipe(diet.id)}>
-                                    Add Diets
-                                </button>
+                                </div>
+                                <input
+                                // className="addButton"
+                                type="checkbox"
+                                onChange={() => AddDietsToRecipe(diet.id)}>
+                                    
+                                </input>
                             </div>
                         })
                     }

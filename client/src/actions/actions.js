@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {RECIPES_URL, BASE_URL} from '../constantes'
-import { GET_RECIPES, FILTER_RECIPES, ORDER_RECIPES, SEARCH_RECIPES } from './constantes'
+import { GET_RECIPES, RECIPE_DETAIL, FILTER_RECIPES, ORDER_RECIPES, SEARCH_RECIPES, ORDER_BY_SCORE } from './constantes'
 
 // export function getRecipes() {
 //     return function(dispatch) {
@@ -47,14 +47,24 @@ export const orderRecipes = function(payload){
     });
 }
 
+export const orderByScore = function(payload){
+
+    return (
+        {
+            type: ORDER_BY_SCORE,
+            payload
+        }
+    )
+}
+
 // export const recipeDetail = function(payload){
 
 //     return function(dispatch)
 //     {
-//         axios.get()
+//         axios.get(`http://localhost:3001/recipes/` + payload)
 //         .then((res, err) => {
 //             dispatch({
-//                 type: "showRecipeDetail",
+//                 type: "RECIPE_DETAIL",
 //                 payload: res.data
 //             })
 //         })

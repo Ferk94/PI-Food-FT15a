@@ -28,10 +28,10 @@ const {DB_APIKEY, DB_APIKEY2, DB_APIKEY3, DB_APIKEY4, DB_APIKEY5} = process.env;
 // Syncing all the models at once.
 conn.sync({ force: true }).then((next) => {
   console.log("base de datos conectada")  
-   axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY4}&addRecipeInformation=true&number=200`)
+   axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY3}&addRecipeInformation=true&number=200`)
    .then(resultado => {
    var results = resultado.data.results
-   var resultsDiets = results.map(e => {
+   var resultsDiets = results.map(e => { 
      return e.diets
    })
 
@@ -40,7 +40,7 @@ conn.sync({ force: true }).then((next) => {
     return resultadosRepetidos.indexOf(item) === index;
   })
     diets.unshift("vegetarian")
-    diets = diets.map(diet => {      // ["vegan", "vegetarian" "..."] [{name: "vegan"}, {name: "vegetaroam"}]
+    diets = diets.map(diet => {      // ["vegan", "vegetarian" "..."] [{name: "vegan"}, {name: "vegetarian"}]
       return {name: diet}
     })
     diets.forEach(diet => Diet.create(diet))

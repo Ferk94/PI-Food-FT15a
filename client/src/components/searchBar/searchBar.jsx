@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchRecipes, orderRecipes, filterRecipes } from "../../actions/actions";
+import { searchRecipes, orderRecipes, filterRecipes, orderByScore } from "../../actions/actions";
 import Recipe from "../home/recipe";
 import "./searchBar.css";
 
@@ -33,20 +33,24 @@ export default function SearchBar(){
         setTitle(e.target.value)
     }
 
-    function handleNext(e){
+    function handleNext(){
         if(page < maxPage){
             setPage(page + 1)
         }
     }
 
-    function handlePrevious(e){
+    function handlePrevious(){
         if(page > 1){
             setPage(page - 1)
         }
     }
 
-    function handleOrder(e){
+    function handleOrder(e){ 
         dispatch(orderRecipes(e.target.value))
+    }
+
+    function handleOrderByScore(e){
+        dispatch(orderByScore(e.target.value))
     }
 
     function handlefilter(e){
@@ -78,11 +82,11 @@ export default function SearchBar(){
                value={title.title}
                onChange={(e) => handleChange(e)}
                />
-            <button type="submit">Search</button>
+            <button className="button-search" type="submit">Search</button>
            </div>
            <div>
-               <button type="button" onClick={(e) => handlePrevious(e)}>Previous Page</button>
-               <button type="button" onClick={(e) => handleNext(e)}>Next Page</button>
+               <button className="button-previous" type="button" onClick={(e) => handlePrevious(e)}>Previous Page</button>
+               <button className="button-next" type="button" onClick={(e) => handleNext(e)}>Next Page</button>
                <p>{page} de {maxPage}</p>
            </div>
            <div>
@@ -91,6 +95,14 @@ export default function SearchBar(){
                    <option value="-">-</option>
                    <option value="asc">Asc</option>
                    <option value="desc">Desc</option>
+               </select>
+           </div>
+           <div>
+               <label htmlFor="order-score">Order Score</label>
+               <select id="order-score" name="order-score" onChange={(e) => handleOrderByScore(e)}>
+                    <option value="-">-</option>
+                    <option value="min">Min</option>
+                    <option value="max">Max</option> 
                </select>
            </div>
            <div>
@@ -109,15 +121,16 @@ export default function SearchBar(){
                </select>
            </div>
        </form>
-       <ul>
+       <ul className="recipeList">
            {
                showedRecipes.map((recipe, index) =>{
-                return   <div key={index}>
+                return   <div className="recipeCards" key={index}>
                        <Recipe
-                       name={recipe.name || recipe.title}
+                       name={recipe.name}
                        image={recipe.image}
                        id={recipe.id}
-                       diets={recipe.diets} 
+                       diets={recipe.diets}
+                       score={recipe.score} 
                        />
                        {/* <Link to={`/recipes/${recipe.id}`}><button>Detail</button></Link> */}
                    </div>

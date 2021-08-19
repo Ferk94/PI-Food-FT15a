@@ -13,7 +13,7 @@ export default function LandingPage () {
         </h1>
         
         <Link to="/recipes">    
-        <button className="button">Home</button>
+        <button className="button">Start</button>
         </Link>
 
    

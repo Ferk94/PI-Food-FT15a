@@ -1,0 +1,45 @@
+.global {
+    background-color: orange;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items:center;
+}
+
+
+
+.name-recipe {
+    font-size: 50px;
+    color: orange;
+    background-color: rgb(121, 26, 26);
+}
+
+.summary-recipe {
+    font-size: 25px;
+    color: orange;
+    background-color: rgb(121, 26, 26);
+}
+
+.score-recipe {
+    font-size: 25px;
+    color: orange;
+    background-color: rgb(121, 26, 26);
+
+}
+
+.healthScore-recipe {
+    font-size: 25px;
+    color: orange;
+    background-color: rgb(121, 26, 26);
+}
+
+.steps-recipe {
+    font-size: 25px;
+    color: orange;
+    background-color: rgb(121, 26, 26);;
+}
+
+.diets-recipe {
+    font-size: 25px;
+    color: orange;
+    background-color: rgb(121, 26, 26);
+}
