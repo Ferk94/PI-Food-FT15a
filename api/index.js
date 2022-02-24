@@ -28,7 +28,7 @@ const {DB_APIKEY, DB_APIKEY2, DB_APIKEY3, DB_APIKEY4, DB_APIKEY5} = process.env;
 // Syncing all the models at once.
 conn.sync({ force: true }).then((next) => {
   console.log("base de datos conectada")  
-   axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY3}&addRecipeInformation=true&number=200`)
+   axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY}&addRecipeInformation=true&number=200`)
    .then(resultado => {
    var results = resultado.data.results
    var resultsDiets = results.map(e => { 
@@ -45,7 +45,7 @@ conn.sync({ force: true }).then((next) => {
     })
     diets.forEach(diet => Diet.create(diet))
   })
-  .catch(err => next(err))
+  .catch(err => console.error(err))
   console.log("dietas precargadas") 
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console 

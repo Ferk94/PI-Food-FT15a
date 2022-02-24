@@ -63,7 +63,7 @@ router.get("/", async (req, res, next) => {
         })
     } 
     
-       let apiRecipe = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY3}&addRecipeInformation=true&number=100`)
+       let apiRecipe = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY}&addRecipeInformation=true&number=100`)
        let apiChangePropertys = apiRecipe.data.results.map(recipe => {
            return {
                name: recipe.title,
@@ -119,7 +119,7 @@ router.get("/:id", async (req, res, next) => {
             }
             // console.log(recipe.summary)
         }else{
-            var recipeResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APIKEY3}`)
+            var recipeResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APIKEY}`)
             // console.log(recipeResponse, "linea 110")
             recipe = {
                 name: recipeResponse.data.title,
