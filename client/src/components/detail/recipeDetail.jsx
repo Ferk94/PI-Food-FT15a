@@ -8,6 +8,8 @@ export default function RecipeDetail () {
     const [recipe, setRecipe] = useState({})
     const {id} = useParams()
 
+
+    console.log(id, 'el id q voy a enviar al back')
     useEffect(() => {
         getRecipeById(id) 
     }, [id])
