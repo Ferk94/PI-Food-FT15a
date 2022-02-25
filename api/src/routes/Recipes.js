@@ -66,6 +66,7 @@ router.get("/", async (req, res, next) => {
        let apiRecipe = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${DB_APIKEY}&addRecipeInformation=true&number=100`)
        let apiChangePropertys = apiRecipe.data.results.map(recipe => {
            return {
+               id: recipe.id,
                name: recipe.title,
                summary: recipe.summary,
                score: recipe.spoonacularScore,
@@ -97,6 +98,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
     const {id} = req.params
+    console.log(id, 'el id q llega desde el front')
     if(!id) {
         return next({msg: "no me mandaste el id", status: 500})
     }

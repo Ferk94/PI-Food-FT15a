@@ -6,6 +6,8 @@ export default function Recipe (props) {
     if(props.diets){ 
         diets = props.diets
     }
+
+    console.log(props, 'el id dinamico q deberia llegar de recipe')
     return <div className="recipeCard">
         <h1>{props.name}</h1>
         <div className="contenido">
