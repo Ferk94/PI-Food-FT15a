@@ -57,36 +57,8 @@ export default function AddRecipe(){
 
     function handleSubmit(e){
         e.preventDefault();
-
-        // let config = {
-        //     method: "POST",
-        //     headers: {
-        //         "accept": "application/json",
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(form)
-        // }
-
-        // const formData = new FormData()
-        
-        // formData.append("image", form.image)
-        // formData.append("body", JSON.stringify({
-        //     name: form.name,
-        //     summary: form.summary,
-        //     score: form.score,
-        //     healthScore: form.healthScore,
-        //     image: form.image,
-        //     steps: form.steps,
-        //     diets: form.diets,
-        // }))
-
-        
-        // console.log(formData)
-        // console.log(config)
-        // debugger
         axios.post(`${BASE_URL}recipe/`, form)
         .then(response => {
-            // response.JSON()
             console.log(response)
             alert("Se agrego la receta")
         })
@@ -96,9 +68,6 @@ export default function AddRecipe(){
         })
         setForm(initial)
     }
-    // useEffect(() => {
-    //     console.log(ref)
-    // }, [])
 
     return (
         <div className="global">
@@ -107,6 +76,7 @@ export default function AddRecipe(){
                     
                     <h1>Add recipe</h1>
                 </div>
+                <div className='allInputs'>
                 <div className="inputsNames">
                     <label htmlFor="name">Name</label>
                     <input className="inputsArea" autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
@@ -168,15 +138,8 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    {/* <label htmlFor="diets">Diets</label>
-                    <textarea
-                    name="diets"
-                    id="diets"
-                    type="text"
-                    value={form.diets}
-                    onChange={(e) => handleChange(e)}
-                    /> */}
+                </div>
+                <div className='checkBoxs'>
                     {
                         diets.map(diet => { 
                             return <div>
@@ -184,7 +147,6 @@ export default function AddRecipe(){
                                 {diet.name}
                                 </div>
                                 <input
-                                // className="addButton"
                                 type="checkbox"
                                 onChange={() => AddDietsToRecipe(diet.id)}>
                                     
@@ -192,9 +154,9 @@ export default function AddRecipe(){
                             </div>
                         })
                     }
+                </div>
                 <div>
                     <button className="button-submit" type="submit">Submit Recipe</button>
-                </div>
                 </div>
             </form>
         </div>

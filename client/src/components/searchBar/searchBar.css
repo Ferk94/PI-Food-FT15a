@@ -9,6 +9,12 @@
     
 }
 
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .recipeList{
     display: flex;
     justify-content: space-between;
@@ -26,6 +32,14 @@
 .button-search {
     background-color: rgb(121, 26, 26);
     color: orange;
+}
+
+.button-reset {
+    background-color: rgb(121, 26, 26);
+    color: orange;
+    height: 20px;
+    width: 80px;
+    margin-bottom: 7px;
 }
 
 .button-previous {

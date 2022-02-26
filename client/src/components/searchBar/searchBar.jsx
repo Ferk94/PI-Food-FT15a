@@ -1,48 +1,21 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { searchRecipes, orderRecipes, filterRecipes, orderByScore } from "../../actions/actions";
-import Recipe from "../home/recipe";
+import { useDispatch } from "react-redux";
+import { searchRecipes, orderRecipes, filterRecipes, orderByScore, getRecipes, searchApiOrDb } from "../../actions/actions";
 import "./searchBar.css";
 
 
-    let notResults = "the current search does not return results"
-
 export default function SearchBar(){
 
-
-    let initialPage = 1;
-    let maxPage;
-    let showedRecipes = [];
-
     const dispatch = useDispatch()
+    const [title, setTitle] = useState("")
 
     useEffect(() => {
         dispatch(searchRecipes(""))
     }, [dispatch])
 
 
-    const [title, setTitle] = useState("")
-    const [page, setPage] = useState(initialPage)
-
-    const foundRecipes = useSelector(state => state.foundRecipes)
-    const filteredRecipes = useSelector(state => state.filteredRecipes)
-
-    maxPage = Math.ceil(filteredRecipes.length / 9)
-
     function handleChange(e){
         setTitle(e.target.value)
-    }
-
-    function handleNext(){
-        if(page < maxPage){
-            setPage(page + 1)
-        }
-    }
-
-    function handlePrevious(){
-        if(page > 1){
-            setPage(page - 1)
-        }
     }
 
     function handleOrder(e){ 
@@ -55,44 +28,34 @@ export default function SearchBar(){
 
     function handlefilter(e){
         dispatch(filterRecipes(e.target.value))
-        setPage(1)
+        // setPage(1)
+    }
+
+    function handleSearchApiOrDb(e){
+        if(e.target.value === 'api' || e.target.value === 'db')
+        dispatch(searchApiOrDb(e.target.value))
+        if(e.target.value === 'all'){
+            dispatch(getRecipes())
+        }
     }
 
     function handleSubmit(e){
         e.preventDefault()
         dispatch(searchRecipes(title))
+        document.getElementById('title').value = null;
     }
 
-    showedRecipes = filteredRecipes.slice((page -1)*9, page*9)
-
-    if(foundRecipes.length === 0){
-         notResults = "the current search does not return results"
-    }else{
-         notResults = ""
+    function onReset(e){
+        e.preventDefault();
+        dispatch(getRecipes())
     }
 
     return <div className="searchBar">
-       <h1>{notResults}</h1>
-       <form onSubmit={(e) => handleSubmit(e)}>
-           <div>
-               <input
-               type="text"
-               id="title"
-               autoComplete="off"
-               value={title.title}
-               onChange={(e) => handleChange(e)}
-               />
-            <button className="button-search" type="submit">Search</button>
-           </div>
-           <div>
-               <button className="button-previous" type="button" onClick={(e) => handlePrevious(e)}>Previous Page</button>
-               <button className="button-next" type="button" onClick={(e) => handleNext(e)}>Next Page</button>
-               <p>{page} de {maxPage}</p>
-           </div>
+       <form className='form' onSubmit={(e) => handleSubmit(e)}>
            <div>
                <label htmlFor="order">Order</label>
                <select id="order" name="order" onChange={(e) => handleOrder(e)}>
-                   <option value="-">-</option>
+                   <option hidden>Select an order</option>
                    <option value="asc">Asc</option>
                    <option value="desc">Desc</option>
                </select>
@@ -100,7 +63,7 @@ export default function SearchBar(){
            <div>
                <label htmlFor="order-score">Order Score</label>
                <select id="order-score" name="order-score" onChange={(e) => handleOrderByScore(e)}>
-                    <option value="-">-</option>
+                    <option hidden>Select an order</option>
                     <option value="min">Min</option>
                     <option value="max">Max</option> 
                </select>
@@ -108,6 +71,7 @@ export default function SearchBar(){
            <div>
                <label htmlFor="diet-filter">Diets</label>
                <select name="diet-filter" onChange={(e) => handlefilter(e)}>
+                <option hidden>Select a diet</option>
                 <option value="all diets">Everyone</option>
                 <option value="dairy free">Dairy free</option>
                 <option value="vegetarian">Vegetarian</option>
@@ -120,22 +84,29 @@ export default function SearchBar(){
                 <option value="whole 30">Whole 30</option> 
                </select>
            </div>
+           <div>
+               <label htmlFor="apiOrDb">Api or Db</label>
+               <select name='apiOrDb' onChange={(e) => handleSearchApiOrDb(e)}>
+                   <option hidden>Select a option</option>
+                   <option value='all'>All</option>
+                   <option value='api'>Api Sponacular</option>
+                   <option value='db'>DB</option>
+               </select>
+           </div>
+           <div>
+               <input
+               type="text"
+               id="title"
+               name='title'
+               autoComplete="off"
+               value={title.title}
+               onChange={(e) => handleChange(e)}
+               />
+            <button className="button-search" type="submit">Search</button>
+           </div>
+           <div>
+               <button className='button-reset' onClick={(e) => onReset(e)}>Reset</button>
+           </div>
        </form>
-       <ul className="recipeList">
-           {
-               showedRecipes.map((recipe, index) =>{
-                return   <div className="recipeCards" key={index}>
-                       <Recipe
-                       name={recipe.name}
-                       image={recipe.image}
-                       id={recipe.id}
-                       diets={recipe.diets}
-                       score={recipe.score} 
-                       />
-                       {/* <Link to={`/recipes/${recipe.id}`}><button>Detail</button></Link> */}
-                   </div>
-               })
-           }
-       </ul>
     </div>
 }
