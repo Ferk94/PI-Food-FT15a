@@ -1,4 +1,5 @@
-import {FILTER_RECIPES, GET_RECIPES, RECIPE_DETAIL, ORDER_RECIPES, SEARCH_RECIPES, ORDER_BY_SCORE} from "../actions/constantes"
+import {FILTER_RECIPES, GET_RECIPES, RECIPE_DETAIL, ORDER_RECIPES, SEARCH_RECIPES, ORDER_BY_SCORE, SEARCH_API_OR_DB} from "../actions/constantes"
+
 
  function filter(list, type){
     if(type === "all diets"){
@@ -35,6 +36,23 @@ function orderAscDesc(list, type){
         })
     }
     return temp;
+}
+
+function searchApiOrDbAux(list, type){
+
+    let recipes;
+    if(type === 'api'){
+        recipes = list.filter(e => {
+            return typeof(e.id) === 'number'
+        })
+    }
+    else if(type === 'db'){
+        recipes = list.filter(e => {
+            return typeof(e.id) === 'string'
+        })
+    }
+
+    return recipes;
 }
 
 function orderByScore(list, type){
@@ -74,12 +92,13 @@ var initialState = {
 function reducer(state = initialState, action) {
 
     switch(action.type) {
-        // case GET_RECIPES:
+        case GET_RECIPES:
           
-        //     return {
-        //     ...state,
-        //     foundRecipes: action.payload
-        // }
+            return {
+            ...state,
+            foundRecipes: action.payload,
+            filteredRecipes: action.payload
+        }
         // case RECIPE_DETAIL:
         //     return {
         //         ...state,
@@ -88,7 +107,6 @@ function reducer(state = initialState, action) {
         case SEARCH_RECIPES:
             return {
                 ...state,
-                foundRecipes: action.payload,
                 filteredRecipes: action.payload
             }
         case FILTER_RECIPES:
@@ -105,6 +123,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 filteredRecipes: orderByScore(state.filteredRecipes, action.payload)
+            }
+        case SEARCH_API_OR_DB:
+            return {
+                ...state,
+                filteredRecipes: searchApiOrDbAux(state.filteredRecipes, action.payload)
             }
         default: return state
     }

@@ -1,18 +1,18 @@
 import axios from 'axios'
 import {RECIPES_URL, BASE_URL} from '../constantes'
-import { GET_RECIPES, RECIPE_DETAIL, FILTER_RECIPES, ORDER_RECIPES, SEARCH_RECIPES, ORDER_BY_SCORE } from './constantes'
+import { GET_RECIPES, RECIPE_DETAIL, FILTER_RECIPES, ORDER_RECIPES, SEARCH_RECIPES, ORDER_BY_SCORE, SEARCH_API_OR_DB } from './constantes'
 
-// export function getRecipes() {
-//     return function(dispatch) {
-//         return axios.get(RECIPES_URL)
-//         .then((recipes) => {
-//             dispatch({
-//                 type: GET_RECIPES, 
-//                 payload: recipes.data
-//             })
-//         })
-//     }
-// }
+export function getRecipes() {
+    return function(dispatch) {
+        return axios.get(RECIPES_URL)
+        .then((recipes) => {
+            dispatch({
+                type: GET_RECIPES, 
+                payload: recipes.data
+            })
+        })
+    }
+}
 
 export const searchRecipes = function(payload){
 
@@ -52,6 +52,16 @@ export const orderByScore = function(payload){
     return (
         {
             type: ORDER_BY_SCORE,
+            payload
+        }
+    )
+}
+
+export const searchApiOrDb = function(payload){
+    
+    return (
+        {
+            type: SEARCH_API_OR_DB,
             payload
         }
     )
