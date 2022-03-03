@@ -56,7 +56,7 @@ function handlePrevious(){
         <SearchBar/>
         <Paginate
             recipesPerPage={recipesPerPage}
-            foundRecipes={foundRecipes?.length}
+            foundRecipes={filteredRecipes?.length}
             paginado={paginado}
             previous={handlePrevious}
             next={handleNext}
