@@ -33,3 +33,13 @@
     background: rgb(121, 26, 26);
     font-weight: bold;
   }
+
+.number {
+  color: orange;
+  background: rgb(121, 26, 26);
+}
+
+.number .active {
+  color: rgb(121, 26, 26);
+  background-color: orange;
+}

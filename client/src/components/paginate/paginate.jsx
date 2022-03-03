@@ -4,16 +4,17 @@ import React from "react";
 export default function Paginate({ recipesPerPage, foundRecipes, paginado, previous, next, page, maxPage }) {
   const pageNumbers = [];
 
+  console.log(recipesPerPage, 'recipesPerPage en paginate', foundRecipes, 'foundRecipes en paginate')
   for (let i = 1; i <= Math.ceil(foundRecipes / recipesPerPage); i++) {
     pageNumbers.push(i);
   }
 
 
-
+console.log(pageNumbers, 'numero de paginas en paginate component')
   return (
     <nav className="paginacion">
         <div>
-               <p>{page} de {maxPage}</p>
+               <p>{page} of {maxPage}</p>
                <button className="button-previous" type="button" onClick={(e) => previous(e)}>Previous Page</button>
                <button className="button-next" type="button" onClick={(e) => next(e)}>Next Page</button>
         </div>
@@ -21,7 +22,7 @@ export default function Paginate({ recipesPerPage, foundRecipes, paginado, previ
         {pageNumbers &&
           pageNumbers.map((number) => (
             <li className="number" key={number}>
-              <button onClick={() => paginado(number)}>{number}</button>
+              <button className="number" onClick={() => paginado(number)}>{number}</button>
             </li>
           ))}
       </ul>
