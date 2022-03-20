@@ -33,21 +33,25 @@ console.log(recipe.diets)
                 <h1>Recipe</h1>
                 {/* <h2>Title</h2> */}
                 <div className="name-recipe">{recipe?.name}</div>
+                <div classNae='left-side'>
                 <div className="img">
                     <img src={recipe?.image} alt="no existe la imagen"/>
                 </div>
-                <h2>Summary</h2>
-                <div className="summary-recipe">{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
-                <h3>Score</h3>
-                <div className="score-recipe">{recipe?.score}</div>
-                <h3>Health Score</h3>
-                <div className="healthScore-recipe">{recipe?.healthScore}</div>
-                <h3>Steps</h3>
-                <div className="steps-recipe">{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
                 <h3>Diets</h3>
                 {
                     recipe.diets.map(diet => <div className="diets-recipe">{diet || diet.name}</div>)
                 }
+                <h2>Summary</h2>
+                <div className="summary-recipe">{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
+                <h3>Steps</h3>
+                <div className="steps-recipe">{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
+                </div>
+                <div className='right-side'>
+                <h3>Score</h3>
+                <div className="score-recipe">{recipe?.score}</div>
+                <h3>Health Score</h3>
+                <div className="healthScore-recipe">{recipe?.healthScore}</div>
+                </div>
             </div>
             
         }
