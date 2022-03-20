@@ -1,9 +1,9 @@
-.global {
+/* .global {
     background-color: orange;
     display: flex;
     flex-wrap: wrap;
     justify-items:center;
-}
+} */
 
 
 
@@ -43,3 +43,8 @@
     color: orange;
     background-color: rgb(121, 26, 26);
 }
+
+/* .left-side{
+    display: flex;
+    justify-content: start;
+} */
