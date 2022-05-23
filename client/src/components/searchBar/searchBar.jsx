@@ -32,8 +32,15 @@ export default function SearchBar(){
     }
 
     function handleSearchApiOrDb(e){
-        if(e.target.value === 'api' || e.target.value === 'db')
-        dispatch(searchApiOrDb(e.target.value))
+        if(e.target.value === 'api'){
+            // dispatch(getRecipes())
+            dispatch(searchApiOrDb('api'))
+        }
+        if(e.target.value === 'db'){
+            // dispatch(getRecipes())
+            dispatch(searchApiOrDb('db'))
+        }
+        
         if(e.target.value === 'all'){
             dispatch(getRecipes())
         }

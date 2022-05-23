@@ -58,7 +58,7 @@ export const orderByScore = function(payload){
 }
 
 export const searchApiOrDb = function(payload){
-    
+    console.log(payload, 'el payload en la action apiOrDb')
     return (
         {
             type: SEARCH_API_OR_DB,

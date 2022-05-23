@@ -43,15 +43,17 @@ function searchApiOrDbAux(list, type){
     let recipes;
     if(type === 'api'){
         recipes = list.filter(e => {
+            console.log(e.id, 'el id de cada receta api')
             return typeof(e.id) === 'number'
         })
     }
     else if(type === 'db'){
         recipes = list.filter(e => {
+            console.log(e.id, 'el id de cada receta DB')
             return typeof(e.id) === 'string'
         })
     }
-
+    console.log(recipes, 'las recetas filtradas por db o api antes de retornar')
     return recipes;
 }
 
@@ -112,7 +114,7 @@ function reducer(state = initialState, action) {
         case FILTER_RECIPES:
             return {
                 ...state,
-                filteredRecipes: filter(state.foundRecipes, action.payload)
+                filteredRecipes: filter(state.filteredRecipes, action.payload)
             }
         case ORDER_RECIPES:
             return {
