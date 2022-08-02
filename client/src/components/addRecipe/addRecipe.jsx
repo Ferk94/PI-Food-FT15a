@@ -76,6 +76,8 @@ export default function AddRecipe(){
                     Create a recipe!
                 </div>
                 <div className='allInputs'>
+                <div className="nameImg">
+
                 <div className="inputsNames">
                     <div htmlFor="name">Name</div>
                     <input className="inputsArea" style={{outline: 'none'}} autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
@@ -92,6 +94,7 @@ export default function AddRecipe(){
                     value={form.image}
                     onChange={(e) => handleChange(e)}
                     />
+                </div>
                 </div>
                 <div className="bigTexts">
 
