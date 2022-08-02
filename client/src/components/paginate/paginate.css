@@ -40,3 +40,8 @@
 .cargando{
   color:rgb(67, 67, 67);
 }
+@media (max-width: 1000px){
+  .paginacion button{
+    margin: 1px;
+  }
+}

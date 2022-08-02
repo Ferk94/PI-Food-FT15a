@@ -59,6 +59,8 @@ export default function SearchBar(){
 
     return <div className="searchBar">
        <form className='form' onSubmit={(e) => handleSubmit(e)}>
+        <div className="searchSelects">
+
            <div>
                <select id="order" name="order" onChange={(e) => handleOrder(e)}>
                    <option hidden>Order</option>
@@ -99,6 +101,8 @@ export default function SearchBar(){
                    <option value='db'>DB</option>
                </select>
            </div>
+        </div>
+           <div className="searchBarAndReset">
            <div className="searchBarInput">
                <input
                type="text"
@@ -112,6 +116,7 @@ export default function SearchBar(){
            </div>
            <div>
                <button className='button-reset' onClick={(e) => onReset(e)}>Reset</button>
+           </div>
            </div>
        </form>
     </div>

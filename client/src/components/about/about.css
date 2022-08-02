@@ -26,3 +26,8 @@ margin: 10px;
     border-radius: 5px;
     border: 1px solid grey;
 }
+@media (max-width: 1000px){
+    .aboutText{
+        width: 340px;
+    }
+}

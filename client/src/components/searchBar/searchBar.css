@@ -78,7 +78,58 @@ outline: none;
     background-color:rgb(67, 67, 67);
     color: #DCE3E8;
 }
-
+.searchSelects{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    width: 700px;
+}
+.searchBarAndReset{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    width: 400px;
+}
+@media (max-width: 1000px){
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+@media (max-width: 700px){
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .searchSelects{
+        width: 80%;
+    }
+    .searchBarAndReset{
+        width: 90%;
+    }
+    .form select{
+        border: 1px solid grey;
+        margin: 0px;
+        width: 90%;
+    }
+    .searchBarInput input{
+        width: 70%;
+        margin-top: 0px;
+    }
+    .searchBarInput{
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+    }
+    .button-reset{
+        margin-top: 5px;
+    }
+}
 
 
 

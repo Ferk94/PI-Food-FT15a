@@ -24,3 +24,10 @@ flex-direction: column;
     border-radius: 5px;
     border:1px solid grey
 }
+@media (max-width: 1000px){
+    .cardDiets{
+        align-items: center;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
