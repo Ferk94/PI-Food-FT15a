@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./navBar.css";
 
 
@@ -7,12 +7,12 @@ export default function NavBar (props) {
 
 
     return <div className="navBar">
-            <button className="homeButton" ><Link to="/recipes" style={{textDecoration: "none", color:"maroon"}}>Home</Link></button>
+            <button className="landingNavButton"><NavLink exact to="/" activeClassName="active" style={{textDecoration: "none", color: '#DCE3E8'}}>Landing Page</NavLink></button>
         <nav>
-            <button className="aboutButton"><Link to="/recipes/about" style={{textDecoration: "none", color:"maroon"}} >About</Link> </button>
-            <button className="landingButton"><Link to="/" style={{textDecoration: "none", color:"maroon"}}>Landing Page</Link></button>
+            <button className="homeNavButton" ><NavLink exact to="/recipes" activeClassName="active" style={{textDecoration: "none", color: '#DCE3E8'}}>Home</NavLink></button>
+            <button className="createNavButton"><NavLink exact to="/recipes/addrecipe"  style={{textDecoration: "none", color: '#DCE3E8'}}>Create Recipe</NavLink></button>
+            <button className="aboutNavButton"><NavLink exact to="/recipes/about" activeClassName="active" style={{textDecoration: "none", color: '#DCE3E8'}}>About</NavLink> </button>
             {/* <button className="searchButton" onClick={(e) => handleClick(e)} ><Link to="/search" style={{textDecoration: "none", color:"maroon"}}>Search Recipe</Link></button> */}
-            <button className="createButton"><Link to="/recipes/addrecipe" style={{textDecoration: "none", color:"maroon"}}>Create Recipe</Link></button>
         </nav>
     </div>
 }

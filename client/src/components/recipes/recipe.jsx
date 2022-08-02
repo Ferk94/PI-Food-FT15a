@@ -7,21 +7,20 @@ export default function Recipe (props) {
         diets = props.diets
     }
 
-    return <div className="recipeCard">
-        <h1>{props.name}</h1>
-        <div className="contenido">
-        <div>
-            <img src={props.image} alt="no existe la imagen" />
-        </div>
-            <h3>Diets</h3>
-        {
-            diets.map(diet => <p className="diet">{diet || diet.name}</p>)
-        }
-        <div>
-        </div>
-        </div>
-        <Link to={`/recipes/${props.id}`}>
-                  <button className="button-detail">Detail</button>
-              </Link> 
-    </div>
+    return <div className="cardContainer">
+               <Link style={{textDecoration:'none', color:'#2D3642'}} to={`/recipes/${props.id}`}> 
+                        <div className="cardTitle">
+                            {props.name}
+                        </div>
+                        <div className="imgContainer">
+                            <img src={props.image} alt="no existe la imagen" />
+                        </div>
+                    
+                        <div className="cardDiets">
+                            {
+                                diets.map(diet => <div className="diet">{diet || diet.name}</div>)
+                            }
+                        </div>
+                </Link> 
+            </div>
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 import Recipe from "./recipe"
 // import {Link} from "react-router-dom";
@@ -39,14 +40,14 @@ export default function Recipes ({ showedRecipes }) {
     //      notResults = ""
     // }
 
-    return <div>
+    return <div className='cardsContainer'>
                {/* <h1>{notResults}</h1> */}
         {/* <div>
                <p>{page} de {maxPage}</p>
                <button className="button-previous" type="button" onClick={(e) => handlePrevious(e)}>Previous Page</button>
                <button className="button-next" type="button" onClick={(e) => handleNext(e)}>Next Page</button>
         </div> */}
-       <ul className="recipeList">
+     
            {
                showedRecipes.map((recipe, index) =>{
                 return   <div className="recipeCards" key={index}>
@@ -61,6 +62,6 @@ export default function Recipes ({ showedRecipes }) {
                    </div>
                })
            }
-       </ul>
+      
     </div>
 }

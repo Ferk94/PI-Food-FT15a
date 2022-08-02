@@ -60,23 +60,22 @@ export default function SearchBar(){
     return <div className="searchBar">
        <form className='form' onSubmit={(e) => handleSubmit(e)}>
            <div>
-               <label htmlFor="order">Order</label>
                <select id="order" name="order" onChange={(e) => handleOrder(e)}>
-                   <option hidden>Select an order</option>
+                   <option hidden>Order</option>
                    <option value="asc">Asc</option>
                    <option value="desc">Desc</option>
                </select>
            </div>
            <div>
-               <label htmlFor="order-score">Order Score</label>
+             
                <select id="order-score" name="order-score" onChange={(e) => handleOrderByScore(e)}>
-                    <option hidden>Select an order</option>
+                    <option hidden>Score order</option>
                     <option value="min">Min</option>
                     <option value="max">Max</option> 
                </select>
            </div>
            <div>
-               <label htmlFor="diet-filter">Diets</label>
+               
                <select name="diet-filter" onChange={(e) => handlefilter(e)}>
                 <option hidden>Select a diet</option>
                 <option value="all diets">Everyone</option>
@@ -92,15 +91,15 @@ export default function SearchBar(){
                </select>
            </div>
            <div>
-               <label htmlFor="apiOrDb">Api or Db</label>
+                
                <select name='apiOrDb' onChange={(e) => handleSearchApiOrDb(e)}>
-                   <option hidden>Select a option</option>
+                   <option hidden>Creation</option>
                    <option value='all'>All</option>
                    <option value='api'>Api Sponacular</option>
                    <option value='db'>DB</option>
                </select>
            </div>
-           <div>
+           <div className="searchBarInput">
                <input
                type="text"
                id="title"

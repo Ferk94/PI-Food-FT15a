@@ -1,6 +1,6 @@
 .searchBar {
     /* background-image: url(https://fondosmil.com/fondo/24186.jpg); */
-    background-color:orange;
+    background-color: #d5dade;
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -13,6 +13,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-bottom: 10px;
+}
+.form select{
+    background-color: #d5dade;
+    border: 1px #d5dade solid;
+    height: 30px;
+    border-radius: 5px;
+    color: rgb(67, 67, 67);
+}
+.form select:hover{
+border: 1px solid rgb(67, 67, 67);
 }
 
 .recipeList{
@@ -27,30 +38,48 @@
     padding:0 6px;
    
 }
+.searchBarInput input{
+    border:1px solid rgb(67, 67, 67);
+    height: 25px;
+    width: 200px;
+    margin-top: -5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: 'Oxygen', sans-serif;
+}
+.searchBarInput input:focus-visible{
+outline: none;
+}
 
 
 .button-search {
-    background-color: rgb(121, 26, 26);
-    color: orange;
+    border:1px solid rgb(67, 67, 67);
+    color:rgb(67, 67, 67);
+    background-color: #e8eff5;
+    height: 28px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 60px;
+}
+.button-search:hover{
+    background-color:rgb(67, 67, 67) ;
+    color: #DCE3E8;
 }
 
 .button-reset {
-    background-color: rgb(121, 26, 26);
-    color: orange;
-    height: 20px;
+    border:1px solid rgb(67, 67, 67);
+    color:rgb(67, 67, 67);
+    background-color: #e8eff5;
+    border-radius: 5px;
+    height: 30px;
     width: 80px;
-    margin-bottom: 7px;
+}
+.button-reset:hover {
+    background-color:rgb(67, 67, 67);
+    color: #DCE3E8;
 }
 
-.button-previous {
-    background-color: rgb(121, 26, 26);
-    color: orange;
-}
 
-.button-next {
-    background-color: rgb(121, 26, 26);
-    color:orange;
-}
 
 
 

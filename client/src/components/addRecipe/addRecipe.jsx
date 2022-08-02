@@ -70,56 +70,22 @@ export default function AddRecipe(){
     }
 
     return (
-        <div className="global">
-            <form /*encType="multipart/form-data"*/ className="form-new-recipe" onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                    
-                    <h1>Add recipe</h1>
+        <div className="createContainer">
+            <form /*encType="multipart/form-data"*/ className="createForm" onSubmit={(e) => handleSubmit(e)}>
+                <div className="createTitle">
+                    Create a recipe!
                 </div>
                 <div className='allInputs'>
                 <div className="inputsNames">
-                    <label htmlFor="name">Name</label>
-                    <input className="inputsArea" autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
+                    <div htmlFor="name">Name</div>
+                    <input className="inputsArea" style={{outline: 'none'}} autoComplete="off" type="text" name="name" id="name" value={form.name} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className="inputsNames">
-                    <label htmlFor="summary">Summary</label>
-                    <textarea className="inputsArea" name="summary" id="summary" value={form.summary} onChange={(e) => handleChange(e)} />
-                </div>
-                <div className="inputsNames">
-                    <label htmlFor="score">Score</label>
-                    <input
-                    className="inputsArea"
-                    name="score"
-                    id="score"
-                    type="number"
-                    min="0"
-                    max="100"
-                    step="1"
-                    size="6"
-                    value={form.score}
-                    onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div className="inputsNames">
-                    <label htmlFor="healthScore">Health Score</label>
-                    <input
-                    className="inputsArea"
-                    name="healthScore"
-                    id="healthScore"
-                    type="number"
-                    min="0"
-                    max="100"
-                    step="1"
-                    size="6"
-                    value={form.healthScore}
-                    onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div className="inputsNames">
-                    <label htmlFor="image">Image</label>
+                    <div htmlFor="image">Image</div>
                     <input
                     className="inputsArea"
                     name="image"
+                    style={{outline: 'none'}}
                     id="image"
                     type="text"
                     // ref={ref}
@@ -127,9 +93,16 @@ export default function AddRecipe(){
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
+                <div className="bigTexts">
+
                 <div className="inputsNames">
-                    <label htmlFor="steps">Steps</label>
+                    <div htmlFor="summary">Summary</div>
+                    <textarea className="inputsArea" style={{outline: 'none'}} name="summary" id="summary" value={form.summary} onChange={(e) => handleChange(e)} />
+                </div>
+                <div className="inputsNames">
+                    <div htmlFor="steps">Steps</div>
                     <textarea
+                    style={{outline: 'none'}}
                     className="inputsArea"
                     name="steps"
                     id="steps"
@@ -139,10 +112,47 @@ export default function AddRecipe(){
                     />
                 </div>
                 </div>
-                <div className='checkBoxs'>
+                <div className="numericInputs">
+
+                <div className="numeric">
+                    <div htmlFor="score">Score</div>
+                    <input
+                    className="inputsArea"
+                    name="score"
+                    id="score"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    size="4"
+                    value={form.score}
+                    onChange={(e) => handleChange(e)}
+                    />
+                </div>
+                
+                <div className="numeric">
+                    <div htmlFor="healthScore">Health Score</div>
+                    <input
+                    className="inputsArea"
+                    name="healthScore"
+                    id="healthScore"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    size="4"
+                    value={form.healthScore}
+                    onChange={(e) => handleChange(e)}
+                    />
+                </div>
+               
+                </div>
+               
+                </div>
+                <div className='createChecks'>
                     {
                         diets.map(diet => { 
-                            return <div>
+                            return <div className="createCheck">
                                 <div className="diets">
                                 {diet.name}
                                 </div>
@@ -156,7 +166,7 @@ export default function AddRecipe(){
                     }
                 </div>
                 <div>
-                    <button className="button-submit" type="submit">Submit Recipe</button>
+                    <button className="createButton" type="submit">Submit Recipe</button>
                 </div>
             </form>
         </div>

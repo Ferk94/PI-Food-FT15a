@@ -1,55 +1,26 @@
-.recipeCard {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    background-color: rgb(121, 26, 26);
-    max-width: 350px;
-    border-radius: 30px;
-    padding:0 6px;
-    margin-bottom: 30px;
-    min-width: fit-content;
+.cardContainer{
 
+display: flex;
+flex-direction: column;
 }
-
-@media (max-width: 1400px){
-    .recipeCard{
-        max-width: 100px;
-    }
+.cardTitle{
+    font-family: 'Pacifico', cursive;
 }
-
-
-
-.contenido {
+.cardDiets{
+    text-transform: capitalize;
     display: flex;
     flex-direction: column;
-    color: orange;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center; 
-    /* background-image: url(https://static9.depositphotos.com/1026550/1177/i/600/depositphotos_11771732-stock-photo-classic-tablecloth-texture.jpg); */
-     background-color:rgb(121, 26, 26);
-     width: min-content;
-     font-size: 0px;
-     
-     
+    align-items: flex-start;
+    margin-left: 70px;
 }
-
-.contenido:hover {
-    font-size:15px;
+.cardDiets div{
+    margin: 0px;
 }
-
-.contenido:hover > .diet {
-    font-size:15px;
-}   
-
-
-.diet {
-    font-size: 0px;
-    color:orange;
+.recipeCard{
+    align-items: flex-start;
+    flex-direction: row;
 }
-
-.button-detail {
-    background-color: orange;
-    color:rgb(121, 26, 26);
-    
+.imgContainer img{
+    border-radius: 5px;
+    border:1px solid grey
 }

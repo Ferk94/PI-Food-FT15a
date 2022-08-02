@@ -1,50 +1,37 @@
-/* .global {
-    background-color: orange;
+.detailContainer{
     display: flex;
-    flex-wrap: wrap;
-    justify-items:center;
-} */
-
-
-
-.name-recipe {
-    font-size: 50px;
-    color: orange;
-    background-color: rgb(121, 26, 26);
+    font-family: 'Oxygen', sans-serif;
 }
-
-.summary-recipe {
-    font-size: 25px;
-    color: orange;
-    background-color: rgb(121, 26, 26);
-}
-
-.score-recipe {
-    font-size: 25px;
-    color: orange;
-    background-color: rgb(121, 26, 26);
-
-}
-
-.healthScore-recipe {
-    font-size: 25px;
-    color: orange;
-    background-color: rgb(121, 26, 26);
-}
-
-.steps-recipe {
-    font-size: 25px;
-    color: orange;
-    background-color: rgb(121, 26, 26);;
-}
-
-.diets-recipe {
-    font-size: 25px;
-    color: orange;
-    background-color: rgb(121, 26, 26);
-}
-
-/* .left-side{
+.detailInfoContainer{
     display: flex;
-    justify-content: start;
-} */
+    flex-direction: row;
+}
+.detailShortInfo{
+    display: flex;
+    flex-direction: column;
+}
+.detailTitle{
+    font-size: 17px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.detailShortInfo img{
+border-radius: 5px;
+border: 1px solid grey ;
+margin-left: 10px;
+margin-right: 30px;
+}
+.detailPieInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+}
+.detailLargeInfo{
+    padding-bottom: 20px;
+}
+.detailDiets{
+    padding-bottom: 20px;
+}

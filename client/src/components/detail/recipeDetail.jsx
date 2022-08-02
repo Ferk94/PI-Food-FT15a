@@ -27,30 +27,37 @@ export default function RecipeDetail () {
 console.log(recipe.diets)
 
 
-    return <div className="global">
+    return <div className="detailContainer">
         {
-            recipe && recipe.diets && <div>
-                <h1>Recipe</h1>
-                {/* <h2>Title</h2> */}
-                <div className="name-recipe">{recipe?.name}</div>
-                <div classNae='left-side'>
-                <div className="img">
+            recipe && recipe.diets && <div className="detailInfoContainer">
+                <div className="detailImg">
+                <div className="detailShortInfo">
+                <div className="detailTitle">{recipe?.name}</div>
                     <img src={recipe?.image} alt="no existe la imagen"/>
                 </div>
+                <div className="detailPieInfo">
+                <div className="detailDiets">
                 <h3>Diets</h3>
                 {
-                    recipe.diets.map(diet => <div className="diets-recipe">{diet || diet.name}</div>)
+                    recipe.diets.map(diet => <div key={diet?.name} className="diets-recipe">{diet || diet?.name}</div>)
                 }
-                <h2>Summary</h2>
-                <div className="summary-recipe">{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
-                <h3>Steps</h3>
-                <div className="steps-recipe">{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
                 </div>
-                <div className='right-side'>
-                <h3>Score</h3>
-                <div className="score-recipe">{recipe?.score}</div>
+                <div>
                 <h3>Health Score</h3>
-                <div className="healthScore-recipe">{recipe?.healthScore}</div>
+                <div>{recipe?.healthScore}</div>
+                </div>
+                </div>
+                </div>
+                <div className="detailLargeInfo">
+                <h2>Summary</h2>
+                <div>{recipe?.summary.replace( /(<([^>]+)>)/ig, "")}</div>
+                {
+                    recipe?.steps && <div>
+
+                        <h3>Steps</h3>
+                        <div>{recipe?.steps?.replace( /(<([^>]+)>)/ig, "")}</div>
+                    </div>
+                }
                 </div>
             </div>
             

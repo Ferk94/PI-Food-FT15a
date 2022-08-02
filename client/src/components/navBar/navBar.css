@@ -1,46 +1,18 @@
 .navBar{
+    background-color: #2D3642;
     display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    background-color:rgb(121, 26, 26);
-    padding:25px;
-    
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50px;
 }
-
-.homeButton {
-    
-    
-    background-color: beige;
-    font-size: 25px;
-    border-radius: 10px;
-    
-
+.navBar button{
+    margin-left: 5px;
+    height: 50px;
+    text-decoration:none;
+    border: #2D3642;
+    background-color: #2D3642;
+    color: #DCE3E8;
 }
-
-.landingButton {
-    
-    background-color: beige;
-    font-size: 20px;
-    border-radius: 10px;
-}
-
-.searchButton {
-    
-    background-color: beige;
-    font-size: 20px;
-    border-radius: 10px;
-}
-
-.createButton {
-   
-    
-    background-color: beige;
-    font-size: 20px;
-    border-radius: 10px;
-}
-
-.aboutButton {
-    background-color: beige;
-    font-size: 20px;
-    border-radius: 10px;
+.active{
+    color:#C15D6D !important;
 }

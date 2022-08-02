@@ -1,6 +1,9 @@
 .paginacion {
     margin: 15px 0;
   }
+  .paginacion p{
+    color:rgb(67, 67, 67)
+  }
   
   .paginacion ul {
     list-style: none;
@@ -23,23 +26,17 @@
     min-width: 10px;
     border: 1px solid white;
   }
-  
-  .paginacion ul li a:hover {
-    background: rgb(121, 26, 26);
-    color: orange;
+  .paginacion button{
+    border:1px solid rgb(67, 67, 67);
+    color:rgb(67, 67, 67);
+    background-color: #e8eff5;
+    height: 25px;
+    border-radius: 5px;
   }
-  
-  .paginacion ul li .active {
-    background: rgb(121, 26, 26);
-    font-weight: bold;
+  .paginacion button:hover{
+    background-color:rgb(67, 67, 67);
+    color: #DCE3E8;
   }
-
-.number {
-  color: orange;
-  background: rgb(121, 26, 26);
-}
-
-.number .active {
-  color: rgb(121, 26, 26);
-  background-color: orange;
+.cargando{
+  color:rgb(67, 67, 67);
 }

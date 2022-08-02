@@ -1,6 +1,7 @@
 import "./paginate.css";
 import React from "react";
 
+
 export default function Paginate({ recipesPerPage, foundRecipes, paginado, previous, next, page, maxPage }) {
   const pageNumbers = [];
 
@@ -13,19 +14,25 @@ export default function Paginate({ recipesPerPage, foundRecipes, paginado, previ
 console.log(pageNumbers, 'numero de paginas en paginate component')
   return (
     <nav className="paginacion">
+      {
+        pageNumbers.length>0 ?
+    <div> 
         <div>
-               <p>{page} of {maxPage}</p>
-               <button className="button-previous" type="button" onClick={(e) => previous(e)}>Previous Page</button>
-               <button className="button-next" type="button" onClick={(e) => next(e)}>Next Page</button>
+        <p>{page} of {maxPage}</p>
         </div>
-      <ul className="paginado" style={{padding: 0}}>
-        {pageNumbers &&
-          pageNumbers.map((number) => (
-            <li className="number" key={number}>
-              <button className="number" onClick={() => paginado(number)}>{number}</button>
-            </li>
-          ))}
-      </ul>
+          <ul className="paginado" style={{padding: 0}}>
+          <button className="button-previous" style={{width:'50px'}} type="button" onClick={(e) => previous(e)}>Prev</button>
+      {pageNumbers &&
+        pageNumbers.map((number) => (
+          <li className="number" key={number}>
+            <button className="number" style={{width:'30px'}} onClick={() => paginado(number)}>{number}</button>
+          </li>
+        ))}
+        <button className="button-next" style={{width:'50px'}} type="button" onClick={(e) => next(e)}>Next</button>
+      </ul> </div> : 
+      <div className="cargando">Cargando...</div>
+      }
+       
   </nav>
   );
 }
